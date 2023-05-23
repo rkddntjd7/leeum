@@ -1,0 +1,44 @@
+{
+    "writer":[
+        {
+            "img" : "images/writer1.jpeg",
+            "name" : "지니서"
+        },
+        {
+            "img" : "images/writer2.jpeg",
+            "name" : "강우성"
+        },
+        {
+            "img" : "images/writer3.jpeg",
+            "name" : "최누리"
+        },
+        {
+            "img" : "images/writer4.jpeg",
+            "name" : "홍정원"
+        },
+        {
+            "img" : "images/writer5.jpeg",
+            "name" : "김도연"
+        },
+        {
+            "img" : "images/writer6.jpeg",
+            "name" : "전여경"
+        },
+        {
+            "img" : "images/writer7.jpeg",
+            "name" : "차명진"
+        },
+        {
+            "img" : "images/writer8.jpeg",
+            "name" : "이유재"
+        },
+        {
+            "img" : "images/writer9.jpeg",
+            "name" : "박은영"
+        },
+        {
+            "img" : "images/writer10.jpeg",
+            "name" : "정규진"
+        }
+    ]
+}

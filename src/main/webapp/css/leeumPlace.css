@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+p {
+	line-height: 26px;
+}
+
+.place-kang {
+    max-width: 100%;
+    height: 100%;
+    margin-top: 3%;
+}
+
+.place-kang .row-kang {
+   
+    justify-content: space-between;
+}
+
+.place-kang p {
+    font-weight: bold;
+} 
+
+.place-kang span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.imgbox-kang {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.imgbox-kang img{
+    width: 100%;
+}
+
+.leftimg-kang img, .rightimg-kang img{
+    width: 100%;
+    margin-top: 3%;
+}
+
+div.row{
+   display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.left-content-kang,
+.right-content-kang
+ {
+   width: 50%;
+}
+
+.left-content2-kang,
+.right-content2-kang {
+   width: 664px;
+}

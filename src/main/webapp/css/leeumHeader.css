@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+* {box-sizing: border-box;}
+
+header{
+	margin-bottom: 100px;	
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Nanum Gothic', sans-serif;
+    background: #fff;
+    color: #000;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+ul.gnb {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+ul.gnb li a {
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+}
+
+.quick a {
+    text-decoration: none;
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    background-color: #333;
+    color: #999;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+}
+
+/*************************** i-pop *****************************/
+
+.i-pop{
+    width: 200px;
+    height: 200px;
+    background: #333;
+    border-radius: 0 50% 50% 50%;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    display: none;
+    z-index: 100;
+}
+
+.i-pop>i{
+    padding: 30px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.i-pop>i:hover{
+    color: #9f9f9f;
+}
+
+.i-pop div{
+   	position: absolute;
+    top: 45px;
+    left: 75px;
+}
+
+.i-pop div a{
+    color:#cacaca;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.i-pop div a:hover{
+     text-decoration: underline;
+}

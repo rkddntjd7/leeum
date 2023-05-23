@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style-type: none;
+}
+
+.do-artist{
+    display: flex;
+    margin: 100px 0;
+    font-weight: bold;
+}
+.do-artist div:first-child{
+    width: 230px;
+}
+.do-artist div:nth-child(2){
+    width: 230px;
+}
+.do-artist div:last-child{
+    width: 900px;
+}
+.do-artist-content{
+    display: flex;
+}
+.do-list{
+    width: 200px;
+    font-size: 18px;
+    margin-right: 50px;
+}
+.do-one-list{
+    width: 200px;
+    position: fixed;
+    
+}
+.do-one-list span{
+    display: inline-block;
+    padding: 5px;
+    margin: 8px;
+    color: #aaa;
+    cursor: pointer;
+}
+.do-line{
+    border: 2px solid #aaa;
+    border-radius: 50%;
+}
+.do-artist-introduce{
+    width: 1400px;
+    display: flex;
+    flex-direction: column
+}
+.ga{
+    font-size: 20px;
+    font-weight: bold;
+}
+.do-img ul{
+    margin-left: 150px;
+}
+.do-img li{
+    float: left;
+}
+.ga-img-a{
+    position: relative;
+    margin: 0px 0px 30px 50px;
+}
+.ga-img-a img{
+    width: 280px;
+    height: 300px;
+}
+.ga-img-a p{
+    font-weight: bold;
+}
+.b-002{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+}
+.ga-img-a:hover .b-002{
+    opacity: 1;
+}

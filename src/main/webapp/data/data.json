@@ -1,0 +1,65 @@
+{ "qa_list" : [
+    {
+        "num" : 10,
+        "title" : "문의 드립니다.",
+        "writer" : "작성자",
+        "comment" : "N"
+    },
+    {
+        "num" : 9,
+        "title" : "문의 드립니다.",
+        "writer" : "작성자",
+        "comment" : "N"
+    },
+    {
+        "num" : 8,
+        "title" : "문의 드립니다.",
+        "writer" : "작성자",
+        "comment" : "N"
+    },
+    {
+        "num" : 7,
+        "title" : "문의 드립니다.",
+        "writer" : "작성자",
+        "comment" : "Y"
+    },
+    {
+        "num" : 6,
+        "title" : "문의 드립니다.",
+        "writer" : "작성자",
+        "comment" : "Y"
+    },
+    {
+        "num" : 5,
+        "title" : "문의 드립니다.",
+        "writer" : "작성자",
+        "comment" : "Y"
+    },
+    {
+        "num" : 4,
+        "title" : "문의 드립니다.",
+        "writer" : "작성자",
+        "comment" : "Y"
+    },
+    {
+        "num" : 3,
+        "title" : "문의 드립니다.",
+        "writer" : "작성자",
+        "comment" : "Y"
+    },
+    {
+        "num" : 2,
+        "title" : "문의 드립니다.",
+        "writer" : "작성자",
+        "comment" : "Y"
+    },
+    {
+        "num" : 1,
+        "title" : "문의 드립니다.",
+        "writer" : "작성자",
+        "comment" : "Y"
+    }
+]
+
+
+}

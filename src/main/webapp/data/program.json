@@ -1,0 +1,101 @@
+{
+    "program":[
+        {
+            "img":"images/program1.png",
+            "title":"<요시고 사진전 : 따뜻한 <br>휴일의 기록> 부산",
+            "location":"KT&G 상상마당 부산 갤러리 5F", 
+            "date":"2023.05.27~2023.09.03"
+        },
+        {
+            "img":"images/program2.png",
+            "title":"김우진 개인전 <Zootopia>",
+            "location":"잔디마당", 
+            "date":"2023.05.05~2023.09.30"
+        },
+        {
+            "img":"images/program3.png",
+            "title":"이경희 개인전<초록 뒤란>",
+            "location":"아트갤러리 3 (스테이 B1)", 
+            "date":"2023.05.05~2023.08.05"
+        },
+        {
+            "img":"images/program4.png",
+            "title":"2023 예비 작가 지원 전시 : 제 3회 ARTISTART",
+            "location":"갤러리", 
+            "date":"2023.05.02~2023.06.02"
+        },
+        {
+            "img":"images/program5.png",
+            "title":"볼로냐 그림책 워크숍 12기 원화전",
+            "location":"라운지", 
+            "date":"2023.04.17~2023.05.05"
+        },
+        {
+            "img":"images/program6.png",
+            "title":"상상사계 봄 <Spring Fever : 춘곤증>",
+            "location":"1F 라운지", 
+            "date":"2023.04.08~2023.06.18"
+        },
+        {
+            "img":"images/program7.png",
+            "title":"노티스 NOTICE",
+            "location":"갤러리 4F", 
+            "date":"2023.04.07~2023.05.07"
+        },
+        {
+            "img":"images/program8.png",
+            "title":"The FREEZING POINT",
+            "location":"갤러리", 
+            "date":"2023.04.03~2023.04.28"
+        },
+        {
+            "img":"images/program9.png",
+            "title":"바르르 파르르 (barrr parrr)",
+            "location":"KT&G 상상마당 춘천 아트센터", 
+            "date":"2023.03.10~2023.06.11"
+        },
+        {
+            "img":"images/program10.png",
+            "title":"Hug Me : 우리가 사랑할 때",
+            "location":"라운지", 
+            "date":"2023.03.09~2023.04.12"
+        },
+        {
+            "img":"images/program11.png",
+            "title":"선으로 축적된 시간",
+            "location":"갤러리", 
+            "date":"2023.03.06~2023.03.31"
+        },
+        {
+            "img":"images/program12.png",
+            "title":"2nd NEW CLASSIC : 시작은 빛",
+            "location":"갤러리", 
+            "date":"2023.03.04~2023.04.16"
+        },
+        {
+            "img":"images/program13.png",
+            "title":"고은주 개인전 <화양연화>",
+            "location":"아트갤러리 3 (스테이 B1)", 
+            "date":"2023.02.07~2023.04.30"
+        },
+        {
+            "img":"images/program14.png",
+            "title":"Will You Be My Valentine?",
+            "location":"갤러리", 
+            "date":"2023.02.06~2023.03.03"
+        },
+        {
+            "img":"images/program15.png",
+            "title":"상상나래",
+            "location":"아트갤러리 2", 
+            "date":"2023.02.02~2023.02.09"
+        },
+        {
+            "img":"images/program16.png",
+            "title":"SLAP 생활예술사진가 13기 결과전 <열한 개의 느낌표 그리고, 물음표>",
+            "location":"갤러리", 
+            "date":"2023.02.01~2023.02.26"
+        }
+        
+    ]
+}
