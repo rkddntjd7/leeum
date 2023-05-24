@@ -6,8 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Vector;
+
+
 
 public class BoardDAO {
 	
@@ -18,10 +19,14 @@ public class BoardDAO {
 	// 데이터베이스에 접근하는 메소드
 	public void getCon() {
 		try {
+			/*
 			String id = "root";
 			String password = "!+(Ye:m6V;t;";
 			String url = "jdbc:mysql://13.124.74.6:3306/leeum";
-
+			*/
+			String url = "jdbc:mysql://localhost:3306/leeum";
+			String id = "root";  
+			String password = "chlduswns1!";
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(url, id, password);
@@ -448,4 +453,145 @@ public class BoardDAO {
 	}
 	
 	
+	
+	
+	public String getDate() {
+		getCon();
+		String sql = "select now()";  // 현재 시간을 가지고옴
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);   // 현재 날짜 반환
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "";
+	}
+	
+	public int getNext() {
+		getCon();
+		String sql = "selet commentID from comments order by commentID desc";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1) + 1;
+			}
+			return 1;   // 첫번째 게시물일 경우
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
+	
+	public int write (String commentContent, String userID, int bbsID) {
+		getCon();
+		String sql = "select into comments values(?, ?, ?, ?, ?, ?)";
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, getNext());
+			pstmt.setInt(2, bbsID);
+			pstmt.setString(3, commentContent);
+			pstmt.setString(4, userID);
+			pstmt.setString(5, getDate());
+			pstmt.setInt(6, 1);
+			
+			return pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
+	
+	public ArrayList<Comment> getList(int bbsID) {   // 특정한 리스트를 받아서 반환
+		getCon();
+		String sql = "select * from comments where bbsID = ? and commentAvailable = 1 order by bbsID desc limit 5";//마지막 게시물 반환, 삭제가 되지 않은 글만 가져온다.
+		ArrayList<Comment> list = new ArrayList<Comment>();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bbsID);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				Comment comment = new Comment();
+				comment.setCommentContent(rs.getString(1));
+				comment.setCommentID(rs.getInt(2));
+				comment.setUserID(rs.getString(3));
+				comment.setCommentAvailable(rs.getInt(4));
+				comment.setCommentDate(rs.getString(5));
+				comment.setBbsID(rs.getInt(6));
+				
+				list.add(comment);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public Comment getComment(int commentID) {   // 하나의 댓글 내용을 불러오는 함수
+		getCon();
+		String sql = "select * from comments where commentID = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, commentID);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				Comment comment = new Comment();
+				comment.setCommentContent(rs.getString(1));
+				comment.setCommentID(rs.getInt(2));
+				comment.setUserID(rs.getString(3));
+				comment.setCommentAvailable(rs.getInt(4));
+				comment.setCommentDate(rs.getString(5));
+				comment.setBbsID(rs.getInt(6));
+				
+				return comment;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;		
+	}
+	
+	public int update(int bbsID, int commentID, String commentContent) {
+		getCon();
+		String sql = "update comments set commentContent = ? where bbsID = ? and commentID = ?";   // 특정한 아이디에 해당하는 제목과 내용을 바꿔준다.
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, commentContent);
+			pstmt.setInt(2, bbsID);
+			pstmt.setInt(3, commentID);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
+	
+	public int delete(int commentID) {
+		getCon();
+		String sql = "update comments set commentAvailable = 0 where commentID = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, commentID);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return -1;
+	}
 }
