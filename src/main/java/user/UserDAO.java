@@ -13,6 +13,7 @@ public class UserDAO {
 	
 	public UserDAO() {
 		try {
+
 			//String dbURL = "jdbc:mysql://localhost:3306/leeum";
 			//String dbID = "root";  
 			//String dbPassword = "dkdls4862";
@@ -24,6 +25,13 @@ public class UserDAO {
 			//String dbPassword = "0731";
 			//String dbPassword = "chlduswns1!";
 			
+
+			
+//			String dbURL = "jdbc:mysql://localhost:3306/leeum";
+//			String dbID = "root";  
+//			String dbPassword = "chlduswns1!";
+			
+
 			String dbID = "root";
 			String dbPassword = "!+(Ye:m6V;t;";
 			String dbURL = "jdbc:mysql://13.124.74.6:3306/leeum";

@@ -51,8 +51,7 @@
                    script.println("alert('댓글 쓰기에 실패했습니다.')");
                    script.println("history.back()");
                    script.println("</script>");
-                }
-               else{
+                } else {
                   PrintWriter script = response.getWriter();
                   script.println("<script>");
                   script.println("location.href=document.referrer;");

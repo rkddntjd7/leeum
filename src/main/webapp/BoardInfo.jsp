@@ -89,7 +89,7 @@ input[type="submit"] {
 }
 .comment-table {
 	justify-content: center;
-	margin-top: 30px;
+	margin-bottom: 60px;
 }
 .comment-list {
 	padding-bottom: 20px;
@@ -166,6 +166,41 @@ input[type="submit"] {
 			<input type="button" value="전체 게시글 보기" onclick="location.href='BoardList.jsp'" />
 		</div>
 		<h3>COMMENT</h3>
+			<div class="row comment-table">
+	            <form method="post" action="submitAction.jsp">
+	            <input type="hidden" name="bbsID" value="<%= bbsID %>">
+	            <input type="hidden" name="userID" value="<%= userID %>">
+	            <table class="table table-bordered">
+	           
+	               <tbody>
+	                <%
+						if(userID != null){
+					%>
+	                  <tr>
+	                     <td align="left"><%= userID %></td>
+	                  </tr>
+	                <%
+						}else{
+	                %>
+	                 <tr>
+	                     <td align="left"></td>
+	                  </tr>
+	               <%
+						}
+	               %>
+	                  <tr>
+	                     <td>
+	                     	<textarea class="form-control" placeholder="댓글 쓰기" name="commentContent" maxlength="300"></textarea>
+	                     </td>
+	                  </tr>
+	               </tbody>
+	            </table>
+	            <div class="comment-button">
+	            	<input type="submit" id="cmtCnt-btn" value="등록 &#xF0D9;">
+	            </div>
+	            </form>
+	      </div>
+		
             <table class="table">
                <tbody>
                <tr>
@@ -182,7 +217,9 @@ input[type="submit"] {
                   		</div>
                   		<div class="right">
                   			<a href="commentUpdate.jsp?bbsID=<%=bbsID%>&commentID=<%=list.get(i).getCommentID()%>" class="edit">수정</a>
-                  			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="commentDeleteAction.jsp?bbsID=<%=bbsID%>&commentID=<%=list.get(i).getCommentID() %>" class="btn btn-danger">삭제</a>
+                  			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="commentDeleteAction.jsp?bbsID=<%=bbsID%>&commentID=<%=list.get(i).getCommentID() %>" class="btn btn-danger">삭제
+                  				<input type="hidden" name="userID" value="<%= list.get(i).getUserID() %>">
+                  			</a>
                   		</div>
                   	</div>
                   	<div><%= list.get(i).getCommentContent() %></div>
@@ -192,41 +229,7 @@ input[type="submit"] {
                   %>
                   </tr>
             </table>
-         
-      <div class="row comment-table">
-            <form method="post" action="submitAction.jsp">
-            <input type="hidden" name="bbsID" value="<%= bbsID %>">
-            <input type="hidden" name="userID" value="<%= userID %>">
-            <table class="table table-bordered">
-           
-               <tbody>
-                <%
-					if(userID != null){
-				%>
-                  <tr>
-                     <td align="left"><%= userID %></td>
-                  </tr>
-                <%
-					}else{
-                %>
-                 <tr>
-                     <td align="left"></td>
-                  </tr>
-               <%
-					}
-               %>
-                  <tr>
-                     <td>
-                     	<textarea class="form-control" placeholder="댓글 쓰기" name="commentContent" maxlength="300"></textarea>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-            <div class="comment-button">
-            	<input type="submit" id="cmtCnt-btn" value="등록 &#xF0D9;">
-            </div>
-            </form>
-      </div>
+      
 	</div>
 
 	<jsp:include page="/include/leeumFooter.jsp"></jsp:include>

@@ -24,6 +24,7 @@ public class BoardDAO {
 			String password = "!+(Ye:m6V;t;";
 			String url = "jdbc:mysql://13.124.74.6:3306/leeum";
 			*/
+			
 			String url = "jdbc:mysql://localhost:3306/leeum";
 			String id = "root";  
 			String password = "chlduswns1!";
@@ -479,7 +480,7 @@ public class BoardDAO {
 	
 	public ArrayList<Comment> getList(int bbsID) {   // 특정한 리스트를 받아서 반환
 		getCon();
-		String sql = "select * from comments where bbsID = ?  and commentAvailable = 1 order by bbsID desc limit 5";//마지막 게시물 반환, 삭제가 되지 않은 글만 가져온다.
+		String sql = "select * from comments where bbsID = ?  and commentAvailable = 1";//마지막 게시물 반환, 삭제가 되지 않은 글만 가져온다.
 		ArrayList<Comment> list = new ArrayList<Comment>();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -509,20 +510,25 @@ public class BoardDAO {
 	
 	public Comment getComment(int commentID) {   // 하나의 댓글 내용을 불러오는 함수
 		getCon();
-		String sql = "select * from comments where commentID = ?";
+		
 		try {
+			String sql = "select * from comments where commentID = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, commentID);
 			rs = pstmt.executeQuery();
 			
+			
+			
 			while (rs.next()) {
 				Comment comment = new Comment();
-				comment.setCommentContent(rs.getString(1));
-				comment.setCommentID(rs.getInt(2));
-				comment.setUserID(rs.getString(3));
-				comment.setCommentAvailable(rs.getInt(4));
+				
+				comment.setCommentID(rs.getInt(1));
+				comment.setBbsID(rs.getInt(2));
+				comment.setCommentContent(rs.getString(3));
+				comment.setUserID(rs.getString(4));
 				comment.setCommentDate(rs.getString(5));
-				comment.setBbsID(rs.getInt(6));
+				comment.setCommentAvailable(rs.getInt(6));
+				
 				
 				return comment;
 			}
