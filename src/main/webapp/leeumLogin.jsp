@@ -37,7 +37,7 @@
                             <input type="password" id="upass" name="upass" maxlength="12" title="비밀번호">
                         </li>
                         <li class="membersLogin-find">
-                            <a href="#"><span>아이디 / 비밀번호 찾기</span></a>
+                            <a href="#" onclick ="findIdPw();"><span>아이디 / 비밀번호 찾기</span></a>
                         </li>
                         <li class="membersLogin-Login">
                             <button type="submit">로그인<i class="fa-sharp fa-solid fa-arrow-right-long"></i></button>
@@ -62,6 +62,6 @@
 </div>
 
 <jsp:include page="/include/leeumFooter.jsp"></jsp:include>
-
+<script src = "js/leeumFindIdPw.js"></script>
 </body>
 </html>
