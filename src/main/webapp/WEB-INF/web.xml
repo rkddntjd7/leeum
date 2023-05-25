@@ -19,4 +19,14 @@
     <servlet-name>BoardtheDAO</servlet-name>
     <url-pattern>/BoardtheDAO</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FindIdPw</display-name>
+    <servlet-name>FindIdPw</servlet-name>
+    <servlet-class>findid.FindIdPw</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindIdPw</servlet-name>
+    <url-pattern>/FindIdPw</url-pattern>
+  </servlet-mapping>
 </web-app>
