@@ -19,15 +19,16 @@ public class BoardDAO {
 	// 데이터베이스에 접근하는 메소드
 	public void getCon() {
 		try {
-			/*
+			
 			String id = "root";
 			String password = "!+(Ye:m6V;t;";
 			String url = "jdbc:mysql://13.124.74.6:3306/leeum";
-			*/
+			
+			/*
 			String url = "jdbc:mysql://localhost:3306/leeum";
 			String id = "root";  
 			String password = "chlduswns1!";
-			
+			*/
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(url, id, password);
 			System.out.println("연결 성공");
@@ -479,7 +480,7 @@ public class BoardDAO {
 	
 	public ArrayList<Comment> getList(int bbsID) {   // 특정한 리스트를 받아서 반환
 		getCon();
-		String sql = "select * from comments where bbsID = ?  and commentAvailable = 1 order by bbsID desc limit 5";//마지막 게시물 반환, 삭제가 되지 않은 글만 가져온다.
+		String sql = "select * from comments where bbsID = ?  and commentAvailable = 1";//마지막 게시물 반환, 삭제가 되지 않은 글만 가져온다.
 		ArrayList<Comment> list = new ArrayList<Comment>();
 		try {
 			pstmt = con.prepareStatement(sql);
