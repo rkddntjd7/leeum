@@ -217,7 +217,9 @@ input[type="submit"] {
                   		</div>
                   		<div class="right">
                   			<a href="commentUpdate.jsp?bbsID=<%=bbsID%>&commentID=<%=list.get(i).getCommentID()%>" class="edit">수정</a>
-                  			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="commentDeleteAction.jsp?bbsID=<%=bbsID%>&commentID=<%=list.get(i).getCommentID() %>" class="btn btn-danger">삭제</a>
+                  			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="commentDeleteAction.jsp?bbsID=<%=bbsID%>&commentID=<%=list.get(i).getCommentID() %>" class="btn btn-danger">삭제
+                  				<input type="hidden" name="userID" value="<%= list.get(i).getUserID() %>">
+                  			</a>
                   		</div>
                   	</div>
                   	<div><%= list.get(i).getCommentContent() %></div>
