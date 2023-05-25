@@ -11,7 +11,17 @@
 <body>
 <jsp:include page="/include/leeumHeader.jsp"></jsp:include>
 
-
+<body>
+	<%
+	String uid = (String)session.getAttribute("uid");
+	if(uid != null){
+	%>
+		<script type="text/javascript">
+			alert("<%=uid%>님 안녕하세요!");
+		</script>
+	<%
+	}
+	%>	
 
      <!-- Do hero -->
 	<div class="container">

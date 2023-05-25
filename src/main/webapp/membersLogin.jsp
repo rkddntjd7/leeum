@@ -27,7 +27,7 @@
         else if (result == 0){
             PrintWriter script = response.getWriter();
             script.println("<script>");
-            script.println("alert('로그인 실패')");
+            script.println("alert('로그인 실패!!')");
             script.println("history.back()");   //이전 페이지로 사용자를 보냄
             script.println("</script>");
         }
