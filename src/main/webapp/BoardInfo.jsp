@@ -69,9 +69,60 @@ input {
 	border-width: 1px;
 	margin: 30px 10px;
 }
+.form-control {
+	width: 1000px;
+	height: 100px;
+}
+input[type="submit"] {
+	font-family: RemixIcon;
+}
+#cmtCnt-btn {
+	background: #000;
+    border: none;
+    border-radius: 10px;
+    float: right;
+    color: #fff;
+    margin: 0px;
+    margin-top: 10px;
+    height: 40px;
+    width: 90px;
+}
+.comment-table {
+	justify-content: center;
+	margin-top: 30px;
+}
+.comment-list {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+.row.cmtLsit-top {
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+.row.cmtLsit-top div {
+	border: none;
+}
+.right a {
+	margin-left: 10px;
+}
 </style>
 <body>
 
+	<%
+		String userID = (String)session.getAttribute("uid");
+	%>
+	<%  
+		int bbsID = 0;
+		if(request.getParameter("num")!=null)
+			bbsID = Integer.parseInt(request.getParameter("num"));
+	
+		int commentID = 0;
+		if(request.getParameter("commentID") != null)
+			commentID=Integer.parseInt(request.getParameter("commentID"));
+		Comment cmt = new BoardDAO().getComment(commentID);
+		
+	%>
 	<%
 	int num = Integer.parseInt(request.getParameter("num").trim()); // 공백 제거 후 정수형으로 바뀜
 
@@ -81,6 +132,7 @@ input {
 	BoardBean bean = bdao.getOneBoard(num);
 	
 	UserDTO udto = new UserDTO();
+	Comment comment = new Comment();
 	%>
 
 	<jsp:include page="/include/leeumHeader.jsp"></jsp:include>
@@ -113,55 +165,68 @@ input {
 			<input type="button" value="삭제하기" onclick="location.href='BoardDeleteForm.jsp?num=<%=bean.getNum() %>'" />
 			<input type="button" value="전체 게시글 보기" onclick="location.href='BoardList.jsp'" />
 		</div>
-         <div class="row">
-            <table class="table table-striped">
+		<h3>COMMENT</h3>
+            <table class="table">
                <tbody>
-               <h3>COMMENT</h3>
                <tr>
                   <%
                      BoardDAO dao = new BoardDAO();
                  	 ArrayList<Comment> list = dao.getList(bean.getNum());
                      for(int i=0; i<list.size(); i++){
                   %>
-                  	<div class="row">
-                  	<table class="table table-striped">                  	
-                  	<tbody>
-                  		<tr>
-                  			<td align="left"><%= list.get(i).getUserID() %></td>
-                  			
-                  			<td align="right"><%= list.get(i).getCommentDate().substring(0,11)+list.get(i).getCommentDate().substring(11,13)+"시"+list.get(i).getCommentDate().substring(14,16)+"분" %></td>
-                  		</tr>
-                  		
-                  		<tr>
-                  			<td align="left"><%= list.get(i).getCommentContent() %></td>
-                  			<td align="right"><a href="commentUpdate.jsp?bbsID=<%= bean.getNum()%>&commentID=<%=list.get(i).getCommentID()%>" class="btn btn-warning">수정</a>
-                  			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="commentDeleteAction.jsp?bbsID=<%=bean.getNum()%>&commentID=<%=list.get(i).getCommentID() %>" class="btn btn-danger">삭제</a></td>
-                  		</tr>
-                  	</tbody>
-                  	</table>
+                  <div class="comment-list">
+                  	<div class="row cmtLsit-top">
+                  		<div class="left">
+                  			<div class="left-top"><%= list.get(i).getUserID() %></div>
+                  			<div class="left-bottom"><%= list.get(i).getCommentDate().substring(0,11) %></div>
+                  		</div>
+                  		<div class="right">
+                  			<a href="commentUpdate.jsp?bbsID=<%=bbsID%>&commentID=<%=list.get(i).getCommentID()%>" class="edit">수정</a>
+                  			<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="commentDeleteAction.jsp?bbsID=<%=bbsID%>&commentID=<%=list.get(i).getCommentID() %>" class="btn btn-danger">삭제</a>
+                  		</div>
                   	</div>
+                  	<div><%= list.get(i).getCommentContent() %></div>
+                  </div>
                   <%
                      }
                   %>
                   </tr>
             </table>
-         </div>
-      <div class="row">
-            <form method="post" action="submitAction.jsp?bbsID=<%= bean.getNum() %>">
+         
+      <div class="row comment-table">
+            <form method="post" action="submitAction.jsp">
+            <input type="hidden" name="bbsID" value="<%= bbsID %>">
+            <input type="hidden" name="userID" value="<%= userID %>">
             <table class="table table-bordered">
+           
                <tbody>
+                <%
+					if(userID != null){
+				%>
                   <tr>
-                     <td align="left"><%=udto.getUid() %></td>
+                     <td align="left"><%= userID %></td>
                   </tr>
+                <%
+					}else{
+                %>
+                 <tr>
+                     <td align="left"></td>
+                  </tr>
+               <%
+					}
+               %>
                   <tr>
-                     <td><input type="text" class="form-control" placeholder="댓글 쓰기" name="commentContent" maxlength="300"></td>
+                     <td>
+                     	<textarea class="form-control" placeholder="댓글 쓰기" name="commentContent" maxlength="300"></textarea>
+                     </td>
                   </tr>
                </tbody>
             </table>
-            <input type="submit" class="btn btn-success pull-right" value="댓글 쓰기">
+            <div class="comment-button">
+            	<input type="submit" id="cmtCnt-btn" value="등록 &#xF0D9;">
+            </div>
             </form>
       </div>
-      
 	</div>
 
 	<jsp:include page="/include/leeumFooter.jsp"></jsp:include>

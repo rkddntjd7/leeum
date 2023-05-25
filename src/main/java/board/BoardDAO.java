@@ -453,80 +453,50 @@ public class BoardDAO {
 	}
 	
 	
-	
-	
-	public String getDate() {
+	public int write(String commentContent, String userID, int bbsID, int commentID) {
 		getCon();
-		String sql = "select now()";  // 현재 시간을 가지고옴
 		
+		System.out.println("write");
 		try {
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				return rs.getString(1);   // 현재 날짜 반환
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return "";
-	}
-	
-	public int getNext() {
-		getCon();
-		String sql = "selet commentID from comments order by commentID desc";
-		try {
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				return rs.getInt(1) + 1;
-			}
-			return 1;   // 첫번째 게시물일 경우
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return -1;
-	}
-	
-	public int write (String commentContent, String userID, int bbsID) {
-		getCon();
-		String sql = "select into comments values(?, ?, ?, ?, ?, ?)";
-		try {
+			String sql="insert into comments values (?, ?, ?, ?, sysdate(), 1)";
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setInt(1, getNext());
+			pstmt.setInt(1, commentID);
 			pstmt.setInt(2, bbsID);
 			pstmt.setString(3, commentContent);
 			pstmt.setString(4, userID);
-			pstmt.setString(5, getDate());
-			pstmt.setInt(6, 1);
+			//pstmt.setString(4, getDate());
+			System.out.println("가");
+			System.out.println(pstmt);
 			
 			return pstmt.executeUpdate();
 			
-		} catch (Exception e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		return -1;
+		return -1;//데이터베이스 오류
 	}
 	
 	public ArrayList<Comment> getList(int bbsID) {   // 특정한 리스트를 받아서 반환
 		getCon();
-		String sql = "select * from comments where bbsID = ? and commentAvailable = 1 order by bbsID desc limit 5";//마지막 게시물 반환, 삭제가 되지 않은 글만 가져온다.
+		String sql = "select * from comments where bbsID = ?  and commentAvailable = 1 order by bbsID desc limit 5";//마지막 게시물 반환, 삭제가 되지 않은 글만 가져온다.
 		ArrayList<Comment> list = new ArrayList<Comment>();
 		try {
 			pstmt = con.prepareStatement(sql);
+			
 			pstmt.setInt(1, bbsID);
+			
 			rs=pstmt.executeQuery();
+			
 			while(rs.next()) {
 				Comment comment = new Comment();
-				comment.setCommentContent(rs.getString(1));
-				comment.setCommentID(rs.getInt(2));
-				comment.setUserID(rs.getString(3));
-				comment.setCommentAvailable(rs.getInt(4));
+				
+				comment.setCommentID(rs.getInt(1));
+				comment.setBbsID(rs.getInt(2));
+				comment.setCommentContent(rs.getString(3));
+				comment.setUserID(rs.getString(4));
 				comment.setCommentDate(rs.getString(5));
-				comment.setBbsID(rs.getInt(6));
+				comment.setCommentAvailable(rs.getInt(6));
 				
 				list.add(comment);
 			}
