@@ -25,14 +25,13 @@
 		</div>
         
 		<div class="card-body">
-      <form action="member/FindIdPw" class="form-signin" method="POST">
-  		<p> 생년월일을 추가적으로 입력해주세요.
-        <input type="text" name="ubtirh" id="ubirth" class="form-control pw-input" placeholder="생년월일을 입력해주세요" required autofocus>
+      <form action="FindPw" class="form-signin" method="POST">
+  		<p> 생년월일을 추가적으로 입력해주세요.</p>
+        <input type="text" name="ubirth" id="ubirth" class="form-control pw-input" placeholder="생년월일을 입력해주세요"  onclick=" findBirth();">
 	</br>
        <button id="btn-Yes" class="btn btn-lg btn-primary btn-block pw-btn" type="submit">
-        	 <a href="findPwResult.jsp">비 밀 번 호 확 인</a></button>
-          <!--<button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit" placeholder = "이메일을 입력해주세요." onclick="check();">
-        	<a href="leeumRegister.jsp">회 원 가입</a></a></button> -->
+        	 비 밀 번 호 확 인</button>
+          
       
       </form>
         

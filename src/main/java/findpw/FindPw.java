@@ -1,4 +1,4 @@
-package findid;
+package findpw;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,7 +11,7 @@ import user.UserDAO;
 import user.UserDTO;
 
 
-public class FindIdPw extends HttpServlet {
+public class FindPw extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
@@ -19,21 +19,21 @@ public class FindIdPw extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		String uname = req.getParameter("uname");
 		String uemail = req.getParameter("uemail");
+		int ubirth = Integer.parseInt(req.getParameter("ubirth"));
 		
 		//쿼리 실행
 		UserDAO dao = new UserDAO();
 		UserDTO dto = null;
-		dto = dao.findId(uname, uemail);
+		dto = dao.findPw(uname, uemail, ubirth);
 		
 		if(dto != null) {
 			res.setContentType("text/html;charset+UTF-8");
 			req.setCharacterEncoding("UTF-8");
-			out.println("<script>alert('"+uname+"님의 아이디는" +dto.getUid()+"이며, 패스워드는 "+dto.getUpass()+"입니다.'); </script>");
+			out.println("<script>alert('"+uname+"님의 비밀번호는" +dto.getUpass()+"입니다'); </script>");
 		}else {
 			res.setContentType("text/html;charset+UTF-8");
 			req.setCharacterEncoding("UTF-8");
-			out.println("<script>alert('조회가 되지 않습니다. 다시 입력해주세요.')</script>");
-			
+			out.println("<script>alert('잉 없어용')</script>");
 		}
 	}
 
