@@ -32,7 +32,8 @@ public class FindIdPw extends HttpServlet {
 		}else {
 			res.setContentType("text/html;charset+UTF-8");
 			req.setCharacterEncoding("UTF-8");
-			out.println("<script>alert('잉 없어용')</script>");
+			out.println("<script>alert('조회가 되지 않습니다. 다시 입력해주세요.')</script>");
+			
 		}
 	}
 
