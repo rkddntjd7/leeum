@@ -116,6 +116,27 @@ public class UserDAO {
 	}
 	
 	
+	public UserDTO findId(String uname, String uemail) {
+		UserDTO userid = null;
+		String sql = "select user from leeum where uname=? and uemail=?";
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, uname);
+			pstmt.setString(2, uemail);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				userid = new UserDTO();
+				userid.setUname(rs.getString("uname"));
+				userid.setUemail(rs.getString("uemail"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return userid;
+	}
+	
 	
 
 }

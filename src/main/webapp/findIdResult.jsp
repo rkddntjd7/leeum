@@ -30,24 +30,7 @@
 
 		<jsp:include page="/include/leeumHeader.jsp"></jsp:include>
 
-<%
 
-	UserDAO dao = new UserDAO();
-	UserDTO dto = new UserDTO();
-	dto.setUname((String) request.getParameter("uname"));
-	dto.setUemail((String) request.getParameter("uemail"));
-	dto.setUid((String) request.getParameter("uid"));
-	
-	String uid = dto.getUid();
-	String uname = dto.getUname();
-	String uemail = dto.getUemail();
-	
-
-	boolean findId = dao.findId(uname, uemail, uid);
-	uname = dto.getUname();
-	uemail = dto.getUemail();
-	uid = dto.getUid();
-%>
 
 	<div class="card align-middle" style="width:25rem;">
 		<div class="card-title" style="margin-top:30px;">
@@ -57,21 +40,15 @@
 		<div class="card-body">
 
       
-      <%
-		if (findId){
-		%>
-      
   		 <div class = "text">
-  		 	<p>고객님의 아이디는 <%= uid%> 입니다</p>
+  		 	<p>고객님의 아이디는 입니다</p>
   		 </div>
   		 
-  		 <%
-	}else {
-  		 %>
+
   		 <div class = "text">
   		 	<p>등록된 정보가 없습니다. 다시 확인해주시기 바랍니다.</p>
   		 </div> 
-  		 <% } %>
+
         <button id="btn-Yes" class="btn btn-lg btn-primary btn-block btn-pw" type="submit">
         <a href = "findPwResult.jsp">비 밀 번 호 찾 기</a></button>
       

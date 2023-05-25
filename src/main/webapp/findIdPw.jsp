@@ -25,13 +25,13 @@
 		</div>
         
 		<div class="card-body">
-      <form action="findIdResult.jsp" class="form-signin" method="POST">
+      <form action="FindIdPw" class="form-signin" method="POST">
   	
         <input type="text" name="uname" id="uname" class="form-control" placeholder="이름" required autofocus><BR>
         <input type="email" name="uemail" id="uemail" class="form-control" placeholder="이메일" required><br>
 
-        <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit" placeholder = "이름을 입력해주세요."  >
-        	<a href = "findIdResult.jsp">아 이 디 찾 기</a></button>
+        <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit" placeholder = "이름을 입력해주세요." >
+        	아 이 디 찾 기</button>
         <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit" placeholder = "이메일을 입력해주세요." >
         	<a href = "findPwResult.jsp">비 밀 번 호 찾 기</a></button>
       
