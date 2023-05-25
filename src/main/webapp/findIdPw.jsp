@@ -33,7 +33,7 @@
         <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit" placeholder = "이름을 입력해주세요." >
         	아 이 디 찾 기</button>
         <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit" placeholder = "이메일을 입력해주세요." >
-        	<a href = "findPwResult.jsp">비 밀 번 호 찾 기</a></button>
+        	<a href = "findPw.jsp">비 밀 번 호 찾 기</a></button>
       
       </form>
         

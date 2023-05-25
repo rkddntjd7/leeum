@@ -13,8 +13,8 @@ public class UserDAO {
 	
 	public UserDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/leeum";
-			String dbID = "root";  
+			//String dbURL = "jdbc:mysql://localhost:3306/leeum";
+			//String dbID = "root";  
 			//String dbPassword = "dkdls4862";
 
 			//String dbPassword = "0731";
@@ -22,12 +22,12 @@ public class UserDAO {
 
 			//String dbPassword = "uskang0208!";
 			//String dbPassword = "0731";
-			String dbPassword = "chlduswns1!";
-			/*
+			//String dbPassword = "chlduswns1!";
+			
 			String dbID = "root";
 			String dbPassword = "!+(Ye:m6V;t;";
 			String dbURL = "jdbc:mysql://13.124.74.6:3306/leeum";
-			*/
+			
 			
 			//개인정보로 바꿔야 하는 부분임
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -118,18 +118,18 @@ public class UserDAO {
 	
 	public UserDTO findId(String uname, String uemail) {
 		UserDTO userid = null;
-		String sql = "select user from leeum where uname=? and uemail=?";
+		String sql = "select * from user where uname=? and uemail=?";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, uname);
 			pstmt.setString(2, uemail);
-			
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				userid = new UserDTO();
 				userid.setUname(rs.getString("uname"));
-				userid.setUemail(rs.getString("uemail"));
+				userid.setUid(rs.getString("uid"));
+				userid.setUpass(rs.getString("upass"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
