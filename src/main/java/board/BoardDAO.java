@@ -19,16 +19,16 @@ public class BoardDAO {
 	// 데이터베이스에 접근하는 메소드
 	public void getCon() {
 		try {
-			
+			/*
 			String id = "root";
 			String password = "!+(Ye:m6V;t;";
 			String url = "jdbc:mysql://13.124.74.6:3306/leeum";
+			*/
 			
-			/*
 			String url = "jdbc:mysql://localhost:3306/leeum";
 			String id = "root";  
 			String password = "chlduswns1!";
-			*/
+			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(url, id, password);
 			System.out.println("연결 성공");
@@ -510,20 +510,25 @@ public class BoardDAO {
 	
 	public Comment getComment(int commentID) {   // 하나의 댓글 내용을 불러오는 함수
 		getCon();
-		String sql = "select * from comments where commentID = ?";
+		
 		try {
+			String sql = "select * from comments where commentID = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, commentID);
 			rs = pstmt.executeQuery();
 			
+			
+			
 			while (rs.next()) {
 				Comment comment = new Comment();
-				comment.setCommentContent(rs.getString(1));
-				comment.setCommentID(rs.getInt(2));
-				comment.setUserID(rs.getString(3));
-				comment.setCommentAvailable(rs.getInt(4));
+				
+				comment.setCommentID(rs.getInt(1));
+				comment.setBbsID(rs.getInt(2));
+				comment.setCommentContent(rs.getString(3));
+				comment.setUserID(rs.getString(4));
 				comment.setCommentDate(rs.getString(5));
-				comment.setBbsID(rs.getInt(6));
+				comment.setCommentAvailable(rs.getInt(6));
+				
 				
 				return comment;
 			}
