@@ -453,45 +453,6 @@ public class BoardDAO {
 	}
 	
 	
-	
-	/*
-	public String getDate() {//현재 서버 시간 가져오기
-		getCon();
-		String sql="select now()";//현재 시간을 가져오는 mysql문장
-		try {
-			pstmt = con.prepareStatement(sql);//sql문장을 실행 준비 단계로
-			rs = pstmt.executeQuery();//실행결과 가져오기
-			if(rs.next()) {
-				return rs.getString(1);//현재 날짜 반환
-			}
-			
-		} catch(Exception e) {
-			e.printStackTrace();//오류 발생
-		}
-		return "";//데이터베이스 오류
-	}
-	*/
-	
-	public int getNext() {
-		getCon();
-		
-		try {
-			String sql = "select commentID from comments order by commentID desc";//마지막 게시물 반환
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			System.out.println(rs);
-			if(rs.next()) {
-				return rs.getInt(1) + 1;
-			}
-			return 1; // 첫 번째 게시물인 경우
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		return -1;//데이터베이스 오류
-	}
-	
 	public int write(String commentContent, String userID, int bbsID, int commentID) {
 		getCon();
 		
