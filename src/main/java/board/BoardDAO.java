@@ -19,16 +19,10 @@ public class BoardDAO {
 	// 데이터베이스에 접근하는 메소드
 	public void getCon() {
 		try {
-			/*
 			String id = "root";
 			String password = "!+(Ye:m6V;t;";
 			String url = "jdbc:mysql://13.124.74.6:3306/leeum";
-			*/
-			
-			String url = "jdbc:mysql://localhost:3306/leeum";
-			String id = "root";  
-			String password = "chlduswns1!";
-			
+
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(url, id, password);
 			System.out.println("연결 성공");
@@ -430,9 +424,7 @@ public class BoardDAO {
 			pstmt.setInt(2, pageSize);
 			
 			rs = pstmt.executeQuery();   // select
-			
-			System.out.println(pstmt);
-			
+
 			while(rs.next()) {
 				BoardBean bBean = new BoardBean();
 				
@@ -453,11 +445,39 @@ public class BoardDAO {
 		return list;   // 게시글 반환
 	}
 	
+	public Comment getBbsID(int bbsID) {
+		String sql = "select * from comments where bbsID = ?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bbsID);
+			
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				Comment comment = new Comment();
+				
+				comment.setCommentID(rs.getInt(1));
+				comment.setBbsID(rs.getInt(2));
+				comment.setCommentContent(rs.getString(3));
+				comment.setUserID(rs.getString(4));
+				comment.setCommentDate(rs.getString(5));
+				comment.setCommentAvailable(rs.getInt(6));
+				
+				return comment;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	
 	public int write(String commentContent, String userID, int bbsID, int commentID) {
 		getCon();
 		
-		System.out.println("write");
 		try {
 			String sql="insert into comments values (?, ?, ?, ?, sysdate(), 1)";
 			pstmt = con.prepareStatement(sql);
@@ -517,7 +537,7 @@ public class BoardDAO {
 			pstmt.setInt(1, commentID);
 			rs = pstmt.executeQuery();
 			
-			
+			System.out.println(pstmt);
 			
 			while (rs.next()) {
 				Comment comment = new Comment();
@@ -545,6 +565,7 @@ public class BoardDAO {
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, commentContent);
+			System.out.println(pstmt);
 			pstmt.setInt(2, bbsID);
 			pstmt.setInt(3, commentID);
 			
@@ -558,7 +579,7 @@ public class BoardDAO {
 	
 	public int delete(int commentID) {
 		getCon();
-		String sql = "update comments set commentAvailable = 0 where commentID = ?";
+		String sql = "delete from comments where commentID = ?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, commentID);
