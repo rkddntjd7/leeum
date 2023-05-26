@@ -10,7 +10,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 </head>
 <body>
 	<%	
@@ -20,7 +19,7 @@
 		if(userID == null){
 	         PrintWriter script = response.getWriter();
 	         script.println("<script>");
-	         script.println("alert('로그인을 하세요')");
+	         script.println("alert('로그인 후 이용해주세요.')");
 	         script.println("location.href = 'leeumLogin.jsp'");
 	         script.println("</script>");
 	    }
