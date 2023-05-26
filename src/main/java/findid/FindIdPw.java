@@ -23,17 +23,17 @@ public class FindIdPw extends HttpServlet {
 		//쿼리 실행
 		UserDAO dao = new UserDAO();
 		UserDTO dto = null;
-		
 		dto = dao.findId(uname, uemail);
 		
 		if(dto != null) {
 			res.setContentType("text/html;charset+UTF-8");
 			req.setCharacterEncoding("UTF-8");
-			out.println("<script>alert('"+uname+"님의 아이디는" +dto.getUid()+"입니다. </script>");
+			out.println("<script>alert('"+uname+"님의 아이디는" +dto.getUid()+"이며, 패스워드는 "+dto.getUpass()+"입니다.'); </script>");
 		}else {
 			res.setContentType("text/html;charset+UTF-8");
 			req.setCharacterEncoding("UTF-8");
-			out.println("<script>alert('아이디가 존재하지 않습니다.')</script>");
+			out.println("<script>alert('조회가 되지 않습니다. 다시 입력해주세요.')</script>");
+			
 		}
 	}
 
