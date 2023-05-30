@@ -16,7 +16,7 @@
         <div class="membersContent">
             <ul class="membersLogin">
                 <div>
-                    <form action="leeumLogin_db.jsp" name="membersLogin" id="membersLogin" method="post">
+                    <form action="membersLogin.jsp" name="membersLogin" id="membersLogin" method="post">
                         <input type="hidden" name="mLogin" value="mLogin">
                         <li class="membersLogin-title">
                             <span>Member's Lounge</span>
@@ -46,7 +46,7 @@
                             <span>아직 멤버십 회원이 아니신가요?</span>
                         </li>
                         <li class="membersLogin-join">
-                            <span><a href="leeumJoin.jsp">멤버십 가입</a></span>
+                            <span><a href="leeumRegister.jsp">멤버십 가입</a></span>
                             <span><i class="fa-sharp fa-solid fa-arrow-right-long"></i></span>
                         </li>
                         <li class="membersLogin-join">
