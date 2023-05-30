@@ -14,11 +14,3 @@ fetch('./data/program.json')
     }
     document.getElementById("row").innerHTML=div;
 });
-
-
-// function next(){
-//     $('.program-inner').animate({
-//         width: '+=900px'
-//     },1000)
-// }
-

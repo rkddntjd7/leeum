@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import = "user.UserDAO, user.UserDTO, java.io.PrintWriter" session="true" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<%-- <jsp:useBean id="user" class="user.UserDTO" scope="page"/> --%>
-<%-- <jsp:setProperty name="user" property="uid"/>
-<jsp:setProperty name="user" property="upass"/> --%>
 <!DOCTYPE html>
 <html>
 <head>
