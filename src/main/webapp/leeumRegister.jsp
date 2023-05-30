@@ -44,12 +44,6 @@
             <div class="row-rgi">
                 <label class="form-label-rgi"> 핸드폰 </label>
                 <input type="text" name="utel" id="utel" placeholder="000-0000-0000">
-                <!-- <input type="number" id="utel1" name="utel1" value="010" readonly />
-                &nbsp; - &nbsp;
-                <input type="number" id="utel2" name="utel2" maxlength="4"/>
-                &nbsp; - &nbsp;
-                <input type="number" id="utel3" name="utel3"/>
-                <input type="hidden"  id="utel" name="utel" > -->
             </div>
             <div class="row-rgi">
                 <label class="form-label-rgi"> 이메일 </label>

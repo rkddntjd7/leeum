@@ -32,7 +32,7 @@
 </head>
 <body>
 <h2>아이디 중복확인</h2>
-		<form name="check" action="check.jsp" method="post">
+		<form name="check" action="idCheck2.jsp" method="post">
 			<div class="idCheckBox">
                 <label class="form-label-rgi"> 아이디 </label>
                 <input type="text" id="uid idChk" name="uid" size="35" style="text-align:center; width:300px; height:30px;" placeholder="영문, 숫자 10~12자리 이내를 입력해 주세요." />

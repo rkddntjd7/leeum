@@ -11,8 +11,6 @@
 <body>
 <jsp:include page="/include/leeumHeader.jsp"></jsp:include>
 
-<body>
-
      <!-- Do hero -->
 	<div class="container">
         <div class="do-explain">
