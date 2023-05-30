@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <style>
-.container {
+.container2 {
 	width: 1000px;
 	margin: 0 auto;
 }
@@ -66,7 +66,7 @@ button {
 <body>
 	<jsp:include page="/include/leeumHeader.jsp"></jsp:include>
 
-	<div class="container">
+	<div class="container2">
 		<h1>-게시글 쓰기-</h1>
 		<form action="BoardWriteProc.jsp" method="post">
 			<div class="formbox">

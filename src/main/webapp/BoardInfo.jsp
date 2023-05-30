@@ -11,7 +11,7 @@
 <html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
-.container {
+.container2 {
 	width: 1000px;
 	margin: 0 auto;
 }
@@ -147,7 +147,7 @@ input[type="submit"] {
 
 	<jsp:include page="/include/leeumHeader.jsp"></jsp:include>
 
-	<div class="container">
+	<div class="container2">
 		<div class="box">
 			<div class="top">
 				<div class="writer">
@@ -173,7 +173,7 @@ input[type="submit"] {
 			</div>
 			<input type="button" value="수정하기" onclick="location.href='BoardUpdateForm.jsp?num=<%=bean.getNum() %>'" />
 			<input type="button" value="삭제하기" onclick="location.href='BoardDeleteForm.jsp?num=<%=bean.getNum() %>'" />
-			<input type="button" value="전체 게시글 보기" onclick="location.href='BoardList.jsp'" />
+			<input type="button" value="전체 게시글 보기" onclick="location.href='leeumNotice.jsp'" />
 		</div>
 		<h3>COMMENT</h3>
 			<div class="row comment-table">
