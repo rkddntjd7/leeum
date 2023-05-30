@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+.container {
+width: 1000px;
+margin: 0 auto;
+}
+
+.box {
+	text-align: center;
+	width: 1000px;
+	height: 100%
+}
+
+.top {
+	display: flex;
+}
+
+.row {
+	display: flex;
+}
+
+.row div {
+	border: 1px solid #ddd;
+}
+
+.num {
+	width: 10%;
+}
+
+.subject {
+	width: 50%;
+	position: relative;
+}
+
+.subject input {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.password {
+	width: 40%;
+	padding: 10px;
+}
+
+.password input {
+	margin-left: 10px;
+	border-radius: 5px;
+	border-width: 1px;
+}
+
+.writer {
+	width: 65px;
+	border: none;
+}
+
+.wdate {
+	width: 100px;
+}
+
+.readcount {
+	width: 60px;
+}
+
+.content {
+	border: 1px solid #ddd;
+	height: 500px;
+	text-align: left;
+}
+
+textarea {
+	width: 100%;
+	height: 100%;
+}
+
+.buttons input {
+	width: 120px;
+	height: 30px;
+	background: #fff;
+	border-radius: 6px;
+	border-width: 1px;
+	margin: 30px 10px;
+}

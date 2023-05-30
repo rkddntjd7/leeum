@@ -1,0 +1,97 @@
+@charset "UTF-8";
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.box {
+	text-align: center;
+	width: 1000px;
+	height: 100%
+}
+
+.top {
+	display: flex;
+}
+
+.row {
+	display: flex;
+}
+
+.row div {
+	border: 1px solid #ddd;
+}
+
+.num {
+	width: 20%;
+}
+
+.subject {
+	width: 80%;
+}
+
+.writer {
+	width: 65px;
+	border: none;
+}
+
+.wdate {
+	width: 100px;
+	margin-left: 20px;
+}
+
+.readcount {
+	width: 60px;
+}
+
+.content {
+	border: 1px solid #ddd;
+	height: 100%;
+	text-align: left;
+}
+
+input {
+	width: 120px;
+	height: 30px;
+	background: #fff;
+	border-radius: 6px;
+	border-width: 1px;
+	margin: 30px 10px;
+}
+.form-control {
+	width: 1000px;
+	height: 100px;
+}
+input[type="submit"] {
+	font-family: RemixIcon;
+}
+#cmtCnt-btn {
+	background: #000;
+    border: none;
+    border-radius: 10px;
+    float: right;
+    color: #fff;
+    margin: 0px;
+    margin-top: 10px;
+    height: 40px;
+    width: 90px;
+}
+.comment-table {
+	justify-content: center;
+	margin-bottom: 60px;
+}
+.comment-list {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+.row.cmtLsit-top {
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+.row.cmtLsit-top div {
+	border: none;
+}
+.right a {
+	margin-left: 10px;
+}

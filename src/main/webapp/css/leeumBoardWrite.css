@@ -1,0 +1,60 @@
+@charset "UTF-8";
+.container2 {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.row {
+	display: flex;
+	padding-bottom: 20px;
+	justify-content: center;
+}
+
+input {
+	height: 25px;
+	border-radius: 6px;
+	margin-right: 20px;
+	border-width: 1px;
+}
+
+textarea {
+	border-radius: 10px;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+.formbox {
+	text-align: center;
+}
+
+.button {
+	width: 1000px;
+	height: 100%;
+	margin-top: 20px;
+}
+
+.button input {
+	width: 80px;
+	height: 30px;
+	background: #fff;
+	border-width: 1px;
+}
+
+button {
+	width: 120px;
+	height: 30px;
+	background: #fff;
+	border-radius: 6px;
+	border-width: 1px;
+}
+
+#subject {
+	width: 700px;
+}
+
+#password, #writer {
+	width: 290px;
+}

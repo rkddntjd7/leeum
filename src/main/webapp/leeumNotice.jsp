@@ -35,12 +35,12 @@
 	
 	System.out.println(bdao.getBoardCount());
 	
-	//Vector<BoardBean> vec = bdao.getAllBoard(startRow, pageSize);
+	
 	ArrayList<BoardBean> boardlist = null;
 	
-	if(cnt != 0){
-		boardlist = bdao.getBoardList(startRow, pageSize);
-	}
+
+	boardlist = bdao.getBoardList(startRow, pageSize);
+
 %> 
 <jsp:include page="/include/leeumHeader.jsp"></jsp:include>
 
