@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html>
+<%
+	String uid = (String) session.getAttribute("uid");
+%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -17,6 +20,17 @@
     		<!-- i (login, join, notice) -->
 				<div class="quick pop">
      				<a href="javascript:void(0)">i</a>
+     				<%
+     					if(uid != null){
+     				%>
+     				<span class="welcomeUser"><%=uid %>님 반갑습니다.</span>
+     				<%
+     				}else{
+     				%>
+     				<span></span>
+     				<%
+     				}
+     				%>
       			</div>
       			
       			<!-- nav -->
@@ -37,7 +51,17 @@
 				    	<a href="leeumArtist.jsp">작가</a>
 				    </li>
 			        <li>
+			        <%
+			        	if(uid != null){
+			        %>
+			        	<a href="leeumMembers.jsp">멤버스</a>
+			        <%
+			        	}else{
+			        %>
 			        	<a href="leeumLogin.jsp">멤버스</a>
+			        <%
+			        	}
+			        %>
 			   		</li>
   				</ul>
                   
@@ -55,8 +79,28 @@
 		<div class="i-pop">
 			<i class="fa-sharp fa-solid fa-xmark"></i>
 			<div>
+				<%
+					if(uid != null){
+				%>
+				<p><a href="Logout.jsp">로그아웃</a></p>
+				<%
+					}else{
+				%>
 				<p><a href="leeumLogin.jsp">로그인</a></p>
+				<%
+					}
+				%>
+				<%
+					if(uid != null){
+						
+					}else{
+						
+				%>
 				<p><a href="leeumRegister.jsp">회원가입</a></p>
+				<%
+				}
+				%>		
+					
 				<p><a href="leeumNotice.jsp">공지사항</a></p>
 			</div>
 		</div>

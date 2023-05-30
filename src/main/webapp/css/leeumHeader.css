@@ -98,3 +98,6 @@ ul.gnb li a {
 .i-pop div a:hover{
      text-decoration: underline;
 }
+.welcomeUser{
+	font-weight: bold;
+}

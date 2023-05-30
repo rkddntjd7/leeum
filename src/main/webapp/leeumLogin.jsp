@@ -16,7 +16,7 @@
         <div class="membersContent">
             <ul class="membersLogin">
                 <div>
-                    <form action="leeumLogin_db.jsp" name="membersLogin" id="membersLogin" method="post">
+                    <form action="membersLogin.jsp" name="membersLogin" id="membersLogin" method="post">
                         <input type="hidden" name="mLogin" value="mLogin">
                         <li class="membersLogin-title">
                             <span>Member's Lounge</span>
