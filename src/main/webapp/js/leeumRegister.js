@@ -108,7 +108,7 @@ function idCheck(){
 	const url = "idCheck.jsp";
 	const width=500, height=350;
 	let left = (document.body.offsetWidth / 2) - (width / 2);
-	let top = (document.body.offsetHeight / 2) - (height);
+	let top = 200;
 	left += window.screenLeft;
 	
 	window.open(
