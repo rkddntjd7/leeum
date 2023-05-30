@@ -90,6 +90,7 @@ ol, ul, li{list-style-type: none;}
  			background-color : transparent;
  			border : none;
  			color : #fff;
+ 			cursor : pointer;
  		}
         .membersLogin-question{
             font-size: 14px;
