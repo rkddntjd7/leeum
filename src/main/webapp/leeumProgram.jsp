@@ -15,7 +15,7 @@
 <div class="container">
 	<ul class="program">
             <li class="program-left">
-            프로그램dd
+            프로그램
             </li>
             <li class="program-right">
             현재 프로그램
