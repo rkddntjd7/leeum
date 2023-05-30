@@ -46,7 +46,7 @@
                             <span>아직 멤버십 회원이 아니신가요?</span>
                         </li>
                         <li class="membersLogin-join">
-                            <span><a href="leeumJoin.jsp">멤버십 가입</a></span>
+                            <span><a href="leeumRegister.jsp">멤버십 가입</a></span>
                             <span><i class="fa-sharp fa-solid fa-arrow-right-long"></i></span>
                         </li>
                         <li class="membersLogin-join">
