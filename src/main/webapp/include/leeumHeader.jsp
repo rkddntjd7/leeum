@@ -50,6 +50,9 @@
 				    <li>
 				    	<a href="leeumArtist.jsp">작가</a>
 				    </li>
+				    <li>
+				    	<a href="leeumNotice.jsp">공지사항</a>
+				    </li>
 			        <li>
 			        <%
 			        	if(uid != null){
