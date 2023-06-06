@@ -28,7 +28,7 @@ public class BoardDAO {
 			System.out.println("연결 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("연결 실패");
+			System.out.println("연결 실패!!!!!");
 		}
 	}
 	
@@ -43,7 +43,7 @@ public class BoardDAO {
 			// ?에 값을 매핑
 			pstmt.setString(1, bean.getSubject());
 			pstmt.setString(2, bean.getWriter());
-//			pstmt.setString(3, bean.getWdate());
+			pstmt.setString(3, bean.getWdate());
 			pstmt.setString(3, bean.getPassword());
 			pstmt.setString(4, bean.getContent());
 			
