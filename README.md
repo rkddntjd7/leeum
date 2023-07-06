@@ -39,7 +39,6 @@ JSP를 기반으로 제작한 리움 미술관 페이지 클론 코딩입니다.
 
 <br>
 
-<video src="C:\Users\KWS\Desktop\notion\로그인,로그아웃.webm"></video>
 
 ## 👩‍👩‍👦‍👦 구성원
 - 강우성 : <https://github.com/rkddntjd7>
